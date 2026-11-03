@@ -40,11 +40,12 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Customer delete(Long id) {
-        Customer customer = customerRepository.findById(id).get();
-        if(customer == null){
-            return null;
+        Optional<Customer> customer = customerRepository.findById(id);
+        if(customer.isPresent()){
+            customerRepository.delete(customer.get());
+            return customer.get();
         }
-        customerRepository.delete(customer);
-        return customer;
+
+        return null;
     }
 }
