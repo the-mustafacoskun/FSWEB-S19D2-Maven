@@ -8,6 +8,9 @@ public class S18d4Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(S18d4Application.class, args);
+		System.out.println("Hello World");
+
+
 	}
 
 }
